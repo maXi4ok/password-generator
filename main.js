@@ -7,12 +7,11 @@ function getRandomInt(max) {
 // ---------------------------------
 // ------------all-lets-that-is-needed----------
 let length = +prompt('enter password length');
-let uniquePassword = new Set();
-let password = '';
 let unique = document.querySelector('.unique');
 let common = document.querySelector('.common');
 // ------functions-for-passwords-------------------------------
-function uniquePasswordGenerator() {        
+function uniquePasswordGenerator() {  
+    let uniquePassword = new Set();      
     while (uniquePassword.size < length) {
         let randomIndex = getRandomInt(charsArray.length);
         let char = charsArray[randomIndex];
@@ -24,6 +23,7 @@ function uniquePasswordGenerator() {
     return uniquePasswordString;
 }
 function passwordGenerator() {
+    let password = '';
     for (let i = 0; i < length; i++) {
         let char = charsArray[getRandomInt(charsArray.length)];
         password = password + char;

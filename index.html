@@ -4,13 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        p{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        body{
+            background-color: rgb(145, 145, 145);
+        }
+        .common{
+            color: #000000;
+        }
+        .unique{
+            color: #2d3748;
+        }
+        .commonButton{
+            height: 40px;
+            border: 1.5px solid black;
+            border-radius: 20px;
+            color: black;
+            background-color: green;
+        }
+        .uniqueButton{
+            height: 40px;
+            border: 1.5px solid black;
+            border-radius: 20px;
+            color: green;
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="prompt()">Set a password length</button>
-    <p></p>
-    <button onclick="passwordGenerator()">Common password with symbols that can repeat</button>
+    <button onclick="passwordGenerator()" class="commonButton">Common password with symbols that can repeat</button>
     <p class="common"></p>
-    <button onclick="uniquePasswordGenerator()">Unique password without repeating symbols</button>
+    <button onclick="uniquePasswordGenerator()" class="uniqueButton">Unique password without repeating symbols</button>
     <p class="unique"></p>
     
 
