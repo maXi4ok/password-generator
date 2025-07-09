@@ -6,18 +6,18 @@ function getRandomInt(max) {
 }
 
 console.log(charsArray);
-console.log(getRandomInt(12));
 
-let password = '';
-function passwordGenerator(length) {
-    for (let i = 0; i < length + 1; i++) {
-        for (let i = 0; i < 8; i++) {
-            let randomIndex = getRandomInt(charsArray.length);
-            let char = charsArray[randomIndex];
-            password += char;
-        }
+let password = new Set();
+function uniquePasswordGenerator(length) {        
+    while (password.size < length + 1) {
+        let randomIndex = getRandomInt(charsArray.length);
+        let char = charsArray[randomIndex];
+        password.add(char); // Set сам не додасть дублікат
+    }
         return password;
 }
-}
 
-console.log(passwordGenerator(8));
+console.log(uniquePasswordGenerator(8));
+
+
+
