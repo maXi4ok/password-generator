@@ -1,11 +1,15 @@
 let charsForPassword = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!#$%^&*_';
 let charsArray = [...charsForPassword]
 // -----------random-Int-Function----------------
+function getValue() {
+    let length = +prompt('enter password length');
+    return length;
+}
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
 }
 // ---------------------------------
-// ------------all-lets-that-is-needed----------
+// ------------all-lets-that-are-needed----------
 let length = +prompt('enter password length');
 let unique = document.querySelector('.unique');
 let common = document.querySelector('.common');
