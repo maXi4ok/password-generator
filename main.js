@@ -7,14 +7,23 @@ function getRandomInt(max) {
 
 console.log(charsArray);
 
-let password = new Set();
+let uniquePassword = new Set();
+let password = '';
 function uniquePasswordGenerator(length) {        
-    while (password.size < length + 1) {
+    while (uniquePassword.size < length + 1) {
         let randomIndex = getRandomInt(charsArray.length);
         let char = charsArray[randomIndex];
-        password.add(char); // Set сам не додасть дублікат
+        uniquePassword.add(char); 
     }
-        return password;
+        return uniquePassword;
+}
+function passwordGenerator(length) {
+    for (let i = 0; i < length + 1; i++) {
+        let char = charsArray[getRandomInt(charsArray.length)];
+        password = password + char;
+    }
+    return password;
+
 }
 
 console.log(uniquePasswordGenerator(8));
