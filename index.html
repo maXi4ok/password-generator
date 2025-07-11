@@ -8,8 +8,16 @@
         p{
             font-size: 20px;
         }
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
         body{
-            background-color: rgb(145, 145, 145);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: aquamarine;
         }
         .common{
             color: #000000;
@@ -23,21 +31,56 @@
         }
         .commonButton{
             height: 40px;
-            border: 1.5px solid black;
+            border: 1.5px solid skyblue;
             border-radius: 20px;
-            color: black;
-            background-color: green;
+            color: darkblue;
+            background-color: skyblue;
         }
         .uniqueButton{
             height: 40px;
-            border: 1.5px solid black;
+            border: 1.5px solid darkblue;
             border-radius: 20px;
-            color: green;
-            background-color: black;
+            color: skyblue;
+            background-color: darkblue;
+        }
+        #input {
+            height: 25px;
+            width: 200px;
+            border: 2px solid lightseagreen;
+            border-radius: 5px;
+            color: rgb(0, 124, 165);
+            background-color: aqua;
+            margin: 20px;
+        }
+        #input::placeholder{
+            margin-left: 5px;
+            color: rgb(107, 120, 194);
+            background-color: aqua;
+        }
+        #red{
+            color: rgb(211, 0, 0);
+            margin-top: -15px;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+        span{
+            font-style: italic;
+            color: black;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+    <div>
+    <input inputmode="numeric" id="input" placeholder="Enter password's length" >
+    <!-- <p id="red">Maximum is 60 symbols, no more! <br> <span>The browser will lag and freeze</span></p> -->
+    </div>
     <button onclick="passwordGenerator()" class="commonButton">Common password with symbols that can repeat</button>
     <p class="common"></p>
     <button onclick="uniquePasswordGenerator()" class="uniqueButton">Unique password without repeating symbols</button>
@@ -45,6 +88,26 @@
     
 
     <script src="main.js">
+    </script>
+    <script>
+        // let red = document.getElementById('red');
+        // red.innerHTML = `Maximum is ${charsArray.length} symbols, no more! <br> <span>The browser will lag and freeze</span>`;
+        let div = document.getElementsByTagName('div')[0];
+        input.onmouseover = function () {
+            let par = document.createElement('p');
+            par.innerHTML = `On the unique password maximum is ${charsArray.length} symbols, no more! <br> <span>The browser will lag and freeze</span>`;
+            par.setAttribute('id', 'red');
+            div.appendChild(par)
+        }
+        input.onmouseleave = function () {
+            let par = document.getElementById('red');
+            par.remove();
+        }
+        document.onreadystatechange = function () {
+            if (document.readyState === 'interactive') {
+                alert(`Hi there! It's password generator. On the unique password maximum is ${charsArray.length} symbols, but on common password there's no limits. So, if you need long password, you can generate more, but dont click the unique password button if you wrote number that's bigger than 70!!!`);
+            } 
+        }
     </script>
 </body>
 </html>

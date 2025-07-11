@@ -1,19 +1,19 @@
-let charsForPassword = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!#$%^&*_';
+let charsForPassword = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!#$%^&*_1234567890';
 let charsArray = [...charsForPassword]
 // -----------random-Int-Function----------------
-function getValue() {
-    let length = +prompt('enter password length');
-    return length;
-}
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
 }
 // ---------------------------------
 // ------------all-lets-that-are-needed----------
-let length = +prompt('enter password length');
+let input = document.getElementById('input');
+let length;
 let unique = document.querySelector('.unique');
 let common = document.querySelector('.common');
 // ------functions-for-passwords-------------------------------
+input.oninput = function () {
+    length = this.value
+}
 function uniquePasswordGenerator() {  
     let uniquePassword = new Set();      
     while (uniquePassword.size < length) {
@@ -36,6 +36,7 @@ function passwordGenerator() {
     return password;
 
 }
+
 // -----------------------------------------------------------------
 
 
